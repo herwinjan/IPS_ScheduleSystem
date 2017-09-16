@@ -28,8 +28,7 @@ define('IM_CHANGESTATUS', IPS_INSTANCEMESSAGE + 5);    //Status was Changed
  */
 class ScheduleSystem extends IPSModule
 {
-    use
-        InstanceStatus;
+
 
     private $scriptConfig="";
 
