@@ -1,0 +1,11 @@
+{
+    "id" :  "{71D945D8-C6D6-4D1E-8AB0-E0180EF94A55}" ,
+    "name" :  "ScheduleSystem" ,
+    "type" :  3,
+    "vendor" :  "HJ Steehouwer" ,
+    "aliases": ["Scheduler"],
+    "parentRequirements" :  [ ] ,
+    "childRequirements" :  [] ,
+    "implemented" :  [ ] ,
+    "prefix" : "SCHEDULER"
+}
