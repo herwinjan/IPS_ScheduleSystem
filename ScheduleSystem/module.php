@@ -63,6 +63,7 @@ class ScheduleSystem extends IPSModule
    {
        // Do not delete this line
        IPS_LogMessage("Visonic DEBUG", "Apply changes!");
+       $this->loadScriptConfig();
 
    }
 
