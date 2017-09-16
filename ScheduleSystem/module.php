@@ -66,7 +66,7 @@ class ScheduleSystem extends IPSModule
 
    }
 
-   private function loadScriprConfig()
+   private function loadScriptConfig()
    {
        $this->scriptConfig=$this->ReadPropertyString("ConfigScripts");
 
