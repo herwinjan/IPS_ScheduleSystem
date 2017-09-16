@@ -74,7 +74,8 @@ class ScheduleSystem extends IPSModule
        if (strlen($this->scriptConfig)>0)
        {
            include $this->scriptConfig;
-       }
+
+           print_r($devices);       }
 
 
 }
