@@ -1,6 +1,6 @@
 {
 	"elements":
 	[
-
+		{ "name": "ConfigScripts", "type": "SelectScript", "caption": "Config Script" }
 	]
 }

@@ -31,14 +31,8 @@ class ScheduleSystem extends IPSModule
     use
         InstanceStatus;
 
-    public $Parent;
-    public $ParentID;
-    public $status=0;
-    public $flag=0;
-    public $alarm=false;
-    public $zones=array();
-    private $usertoken="";
-    private $progtoken="";
+    private $scriptConfig="";
+
 
 
    // The constructor of the module
@@ -48,6 +42,8 @@ class ScheduleSystem extends IPSModule
        // Do not delete this row
        parent::__construct($InstanceID);
 
+
+
        // Self-service code
    }
 
@@ -56,6 +52,10 @@ class ScheduleSystem extends IPSModule
    {
        // Do not delete this row.
        parent::Create();
+
+       $this->RegisterPropertyString("ConfigScripts", "");
+
+       $this->loadScriptConfig();
 
        IPS_LogMessage("Visonic DEBUG", "Create!");
 
@@ -69,6 +69,16 @@ class ScheduleSystem extends IPSModule
        IPS_LogMessage("Visonic DEBUG", "Apply changes!");
 
    }
+
+   private function loadScriprConfig()
+   {
+       $this->scriptConfig=$this->ReadPropertyString("ConfigScripts");
+
+       if (strlen($this->scriptConfig)>0)
+       {
+           include $this->scriptConfig;
+       }
+
 
 }
 
