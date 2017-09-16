@@ -74,6 +74,7 @@ class ScheduleSystem extends IPSModule
    {
        $this->scriptConfig=$this->ReadPropertyString("ConfigScripts");
 
+
        if (strlen($this->scriptConfig)>0)
        {
            include $this->scriptConfig;
