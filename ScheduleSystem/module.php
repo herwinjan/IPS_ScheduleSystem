@@ -73,7 +73,7 @@ class ScheduleSystem extends IPSModule
 
         if (strlen($this->scriptConfig) > 0) {
             $s = IPS_GetScript($this->scriptConfig);
-            include($s['ScriptFile']);
+            include("/var/lib/symcon/scripts/".$s['ScriptFile']);
 
             print_r($devices);
         }
