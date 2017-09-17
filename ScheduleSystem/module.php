@@ -55,7 +55,7 @@ class ScheduleSystem extends IPSModule
 
         $this->loadScriptConfig();
 
-        $this->RegisterTimer ( "UpdateEvent" ,  60*1000 ,  "SCHEDULER_updateEvent();" ) ;
+        $this->RegisterTimer ( "UpdateEvent" ,  60*1000 ,  "SCHEDULER_updateEvent($_IPS[\'TARGET\']);" ) ;
 
         IPS_LogMessage("SCHEDULER DEBUG", "Create!");
 
@@ -97,3 +97,5 @@ class ScheduleSystem extends IPSModule
 
 
 }
+
+
