@@ -179,9 +179,13 @@ class ScheduleSystem extends IPSModule
             $s = IPS_GetScript($this->scriptConfig);
             include("/var/lib/symcon/scripts/".$s['ScriptFile']);
 
+
+
             $this->actions=$actions;
             $this->scheduler=$scheduler;
             $this->devices=$devices;
+
+            IPS_LogMessage("SCHEDULER DEBUG", "Loaded: ".count($actions)." => ".count($this->actions));
 
            // print_r($devices);
         }
