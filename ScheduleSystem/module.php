@@ -29,6 +29,9 @@ if (@constant('IPS_BASE') == null) { //Nur wenn Konstanten noch nicht bekannt si
 class ScheduleSystem extends IPSModule
 {
     private $scriptConfig = "";
+    private $actions=array();
+    private $devices=array();
+    private $scheduler=array();
 
 
     // The constructor of the module
@@ -52,16 +55,18 @@ class ScheduleSystem extends IPSModule
 
         $this->loadScriptConfig();
 
-        IPS_LogMessage("Visonic DEBUG", "Create!");
+        $this->RegisterTimer ( "UpdateEvent" ,  60*1000 ,  "SCHEDULER_updateEvent()" ) ;
+
+        IPS_LogMessage("SCHEDULER DEBUG", "Create!");
 
         return true;
     }
 
-    // Overrides the intere IPS_ApplyChanges ($ id) function
+        // Overrides the intere IPS_ApplyChanges ($ id) function
     public function ApplyChanges()
     {
         // Do not delete this line
-        IPS_LogMessage("Visonic DEBUG", "Apply changes!");
+        IPS_LogMessage("SCHEDULER DEBUG", "Apply changes!");
         $this->loadScriptConfig();
 
     }
@@ -72,12 +77,21 @@ class ScheduleSystem extends IPSModule
 
 
         if (strlen($this->scriptConfig) > 0) {
+
             $s = IPS_GetScript($this->scriptConfig);
             include("/var/lib/symcon/scripts/".$s['ScriptFile']);
 
-            print_r($devices);
-        }
+            $this->actions=$actions;
+            $this->scheduler=$scheduler;
+            $this->devices=$devices;
 
+           // print_r($devices);
+        }
+    }
+
+    public function updateEvent()
+    {
+        IPS_LogMessage("SCHEDULER DEBUG", "check actions! #actions: ".count($this->actions));
 
     }
 
